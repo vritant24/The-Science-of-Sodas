@@ -7,12 +7,147 @@ contacts:
   - displayName: Vritant Bhardwaj
     pictureUrl: https://avatars.githubusercontent.com/u/13074644?v=4
     homePageUrl: https://github.com/vritant24
+files:
+  - path: course1/index.html
+    content: "<!DOCTYPE html>\r
+
+      <html lang=\"en\">\r
+
+      <head>\r
+
+      \    <meta charset=\"UTF-8\">\r
+
+      \    <meta name=\"viewport\" content=\"width=device-width,
+      initial-scale=1.0\">\r
+
+      \    <title>Bubble Simulation</title>\r
+
+      \    <link rel=\"stylesheet\" href=\"index.css\">\r
+
+      </head>\r
+
+      <body>\r
+
+      \    <div id=\"bubble-container\"></div>\r
+
+      \    <script src=\"index.js\"></script>\r
+
+      </body>\r
+
+      </html>"
+  - path: course1/index.css
+    content: "/* styles.css */\r
+
+      body {\r
+
+      \    margin: 0;\r
+
+      \    overflow: hidden;\r
+
+      \    background-color: #e0f7fa;\r
+
+      }\r
+
+      \r
+
+      #bubble-container {\r
+
+      \    position: relative;\r
+
+      \    width: 100vw;\r
+
+      \    height: 100vh;\r
+
+      }\r
+
+      \r
+
+      .bubble {\r
+
+      \    position: absolute;\r
+
+      \    border-radius: 50%;\r
+
+      \    background-color: rgba(255, 255, 255, 0.7);\r
+
+      \    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);\r
+
+      }"
+  - path: course1/index.js
+    content: "// script.js\r
+
+      const container = document.getElementById('bubble-container');\r
+
+      \r
+
+      function createBubble() {\r
+
+      \    const bubble = document.createElement('div');\r
+
+      \    bubble.classList.add('bubble');\r
+
+      \    \r
+
+      \    const size = Math.random() * 50 + 10;\r
+
+      \    bubble.style.width = `${size}px`;\r
+
+      \    bubble.style.height = `${size}px`;\r
+
+      \    \r
+
+      \    bubble.style.left = `${Math.random() * window.innerWidth}px`;\r
+
+      \    bubble.style.bottom = `-${size}px`;\r
+
+      \    \r
+
+      \    container.appendChild(bubble);\r
+
+      \    \r
+
+      \    animateBubble(bubble);\r
+
+      }\r
+
+      \r
+
+      function animateBubble(bubble) {\r
+
+      \    const speed = Math.random() * 3 + 2;\r
+
+      \    let position = -bubble.offsetHeight;\r
+
+      \    \r
+
+      \    function move() {\r
+
+      \        position += speed;\r
+
+      \        bubble.style.bottom = `${position}px`;\r
+
+      \        \r
+
+      \        if (position < window.innerHeight) {\r
+
+      \            requestAnimationFrame(move);\r
+
+      \        } else {\r
+
+      \            bubble.remove();\r
+
+      \        }\r
+
+      \    }\r
+
+      \    \r
+
+      \    move();\r
+
+      }\r
+
+      \r
+
+      setInterval(createBubble, 500);"
 units:
-  - id: unit1
-    title: Unit 1
-    lessons:
-      - id: lesson1
-        title: Lesson 1
-        lessonParts:
-          - id: lessonpart1
-            title: Page 1
+  - unit1/index.yml

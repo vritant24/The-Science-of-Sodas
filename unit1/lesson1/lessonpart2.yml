@@ -1,0 +1,142 @@
+# yaml-language-server: $schema=https://vscodeedu.com/assets/schema/course-v2.schema.json
+id: lessonpart2
+title: Simulating Sodas
+content: >
+  ## Simulating Bubbles with HTML, CSS, and JavaScript
+
+
+  In this activity, you'll create a simple simulation of bubbles using HTML,
+  CSS, and JavaScript. This will help you understand how bubbles behave in a
+  soda.
+
+
+  ### HTML
+
+
+  Start by setting up the basic structure of your HTML file. We'll create a
+  container for the bubbles.
+
+
+  ```html
+
+  <!DOCTYPE html>
+
+  <html lang="en">
+
+  <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Bubble Simulation</title>
+      <link rel="stylesheet" href="styles.css">
+  </head>
+
+  <body>
+      <div id="bubble-container"></div>
+      <script src="script.js"></script>
+  </body>
+
+  </html>
+
+  ```
+
+
+  ### CSS
+
+
+  Next, style the container and the bubbles. We'll use CSS to make the bubbles
+  look realistic.
+
+
+  ```css
+
+  /* styles.css */
+
+  body {
+      margin: 0;
+      overflow: hidden;
+      background-color: #e0f7fa;
+  }
+
+
+  #bubble-container {
+      position: relative;
+      width: 100vw;
+      height: 100vh;
+  }
+
+
+  .bubble {
+      position: absolute;
+      border-radius: 50%;
+      background-color: rgba(255, 255, 255, 0.7);
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  }
+
+  ```
+
+
+  ### JavaScript
+
+
+  Finally, use JavaScript to create and animate the bubbles.
+
+
+  ```javascript
+
+  // script.js
+
+  const container = document.getElementById('bubble-container');
+
+
+  function createBubble() {
+      const bubble = document.createElement('div');
+      bubble.classList.add('bubble');
+      
+      const size = Math.random() * 50 + 10;
+      bubble.style.width = `${size}px`;
+      bubble.style.height = `${size}px`;
+      
+      bubble.style.left = `${Math.random() * window.innerWidth}px`;
+      bubble.style.bottom = `-${size}px`;
+      
+      container.appendChild(bubble);
+      
+      animateBubble(bubble);
+  }
+
+
+  function animateBubble(bubble) {
+      const speed = Math.random() * 3 + 2;
+      let position = -bubble.offsetHeight;
+      
+      function move() {
+          position += speed;
+          bubble.style.bottom = `${position}px`;
+          
+          if (position < window.innerHeight) {
+              requestAnimationFrame(move);
+          } else {
+              bubble.remove();
+          }
+      }
+      
+      move();
+  }
+
+
+  setInterval(createBubble, 500);
+
+  ```
+
+
+  ### Experiment
+
+
+  Try adjusting the size, speed, and frequency of the bubbles to see how it
+  affects the simulation. How do these changes relate to the bubbles you see in
+  a soda? Experiment with different values to simulate different types of sodas.
+showEditor: true
+editors:
+  - course1/index.html
+  - course1/index.css
+  - course1/index.js
