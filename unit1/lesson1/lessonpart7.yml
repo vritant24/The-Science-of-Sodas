@@ -81,17 +81,3 @@ content: >
   Understanding DDoS attacks is crucial for developing robust security measures
   to protect online services. Always ensure that your systems are equipped with
   the necessary defenses to mitigate such threats.
-questionGroups:
-  - id: "1"
-    questions:
-      - id: "1"
-        type: choice
-        content: ""
-        options:
-          - id: "1"
-            value: ""
-            isCorrect: true
-          - id: "2"
-            value: ""
-          - id: "3"
-            value: ""
