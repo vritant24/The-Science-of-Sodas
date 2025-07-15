@@ -1,0 +1,107 @@
+# yaml-language-server: $schema=https://vscodeedu.com/assets/schema/course-v2.schema.json
+id: lessonpart4
+title: SQL Injection
+content: >
+  ### Understanding SQL Injection Attacks
+
+
+  SQL Injection is a type of security vulnerability that allows an attacker to
+  interfere with the queries that an application makes to its database. It can
+  allow unauthorized access to sensitive data, such as user information, and
+  even modify or delete data.
+
+
+  #### How SQL Injection Works
+
+
+  SQL Injection occurs when an application does not properly sanitize user input
+  before including it in an SQL query. This can allow an attacker to insert or
+  "inject" malicious SQL code into a query.
+
+
+  **Example of Vulnerable Code:**
+
+
+  ```sql
+
+  -- Assume 'username' and 'password' are inputs from a user login form
+
+  query = "SELECT * FROM users WHERE username = '" + username + "' AND password
+  = '" + password + "';"
+
+  ```
+
+
+  If the user inputs are not sanitized, an attacker could input the following:
+
+
+  - `username`: `admin' --`
+
+  - `password`: `anything`
+
+
+  The resulting query would be:
+
+
+  ```sql
+
+  SELECT * FROM users WHERE username = 'admin' --' AND password = 'anything';
+
+  ```
+
+
+  The `--` is a comment in SQL, which causes the rest of the query to be
+  ignored. This effectively bypasses the password check, potentially allowing
+  the attacker to log in as the admin user.
+
+
+  #### Preventing SQL Injection
+
+
+  1. **Use Prepared Statements (Parameterized Queries):** This is the most
+  effective way to prevent SQL injection. Prepared statements ensure that user
+  input is treated as data, not executable code.
+
+     **Example of Secure Code:**
+
+     ```python
+     # Using Python with a database library like sqlite3
+     cursor.execute("SELECT * FROM users WHERE username = ? AND password = ?", (username, password))
+     ```
+
+  2. **Input Validation and Sanitization:** Always validate and sanitize user
+  inputs to ensure they conform to expected formats.
+
+
+  3. **Use ORM (Object-Relational Mapping) Tools:** ORMs abstract database
+  interactions and can help prevent SQL injection by using safe query methods.
+
+
+  #### Conclusion
+
+
+  Understanding and preventing SQL injection is crucial for maintaining the
+  security of applications. By using prepared statements, validating inputs, and
+  leveraging ORM tools, developers can protect their applications from this
+  common vulnerability.
+questionGroups:
+  - id: "1"
+    questions:
+      - id: "1"
+        type: choice
+        content: What is the most effective way to prevent SQL injection attacks?
+        options:
+          - id: "1"
+            value: Use prepared statements (parameterized queries).
+            explanation: Prepared statements treat user input as data, not executable code.
+            isCorrect: true
+          - id: "2"
+            value: Rely solely on client-side input validation.
+            explanation: Client-side validation can be bypassed by attackers.
+          - id: "3"
+            value: Use complex SQL queries.
+            explanation: Complexity does not inherently prevent SQL injection.
+          - id: "4"
+            value: Store passwords in plain text.
+            explanation: Storing passwords in plain text is a security risk and does not
+              prevent SQL injection.

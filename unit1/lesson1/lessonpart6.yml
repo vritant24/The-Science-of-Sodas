@@ -1,0 +1,133 @@
+# yaml-language-server: $schema=https://vscodeedu.com/assets/schema/course-v2.schema.json
+id: lessonpart6
+title: Password-Based Attacks
+content: >
+  ## Password-Based Attacks
+
+
+  In this lesson, we will explore password-based attacks, a common threat in
+  cybersecurity. These attacks aim to gain unauthorized access to systems by
+  exploiting weak or compromised passwords.
+
+
+  ### Types of Password-Based Attacks
+
+
+  1. **Brute Force Attack**: This involves systematically trying every possible
+  combination of characters until the correct password is found. While
+  effective, it can be time-consuming and resource-intensive.
+
+
+  2. **Dictionary Attack**: This method uses a list of common passwords or
+  words, often derived from dictionaries, to guess the password. It is faster
+  than brute force as it targets likely passwords.
+
+
+  3. **Credential Stuffing**: Attackers use stolen username-password pairs from
+  one service to attempt access on another service, exploiting users who reuse
+  passwords across multiple sites.
+
+
+  ### Code Example: Brute Force Attack Simulation
+
+
+  Below is a simple Python script that simulates a brute force attack on a
+  password:
+
+
+  ```python
+
+  import itertools
+
+  import string
+
+
+  def brute_force_attack(target_password):
+      characters = string.ascii_lowercase + string.digits
+      attempts = 0
+
+      for length in range(1, 6):  # Limiting to passwords of length 5 for demonstration
+          for guess in itertools.product(characters, repeat=length):
+              attempts += 1
+              guess_password = ''.join(guess)
+              if guess_password == target_password:
+                  print(f"Password '{target_password}' cracked in {attempts} attempts!")
+                  return
+
+      print("Password not cracked.")
+
+  # Example usage
+
+  brute_force_attack("abc12")
+
+  ```
+
+
+  ### Code Example: Dictionary Attack Simulation
+
+
+  Here's a Python script that demonstrates a dictionary attack using a list of
+  common passwords:
+
+
+  ```python
+
+  def dictionary_attack(target_password, dictionary):
+      attempts = 0
+
+      for guess_password in dictionary:
+          attempts += 1
+          if guess_password == target_password:
+              print(f"Password '{target_password}' cracked in {attempts} attempts!")
+              return
+
+      print("Password not cracked.")
+
+  # Example usage
+
+  common_passwords = ["password", "123456", "abc123", "letmein", "qwerty"]
+
+  dictionary_attack("abc123", common_passwords)
+
+  ```
+
+
+  ### Mitigation Strategies
+
+
+  To protect against password-based attacks, consider the following strategies:
+
+
+  - **Use Strong Passwords**: Encourage users to create complex passwords that
+  include a mix of letters, numbers, and symbols.
+
+  - **Implement Multi-Factor Authentication (MFA)**: Adding an extra layer of
+  security can significantly reduce the risk of unauthorized access.
+
+  - **Regularly Update Passwords**: Prompt users to change their passwords
+  periodically to minimize the risk of compromise.
+
+
+  Understanding these attacks and implementing robust security measures can help
+  safeguard systems against unauthorized access.
+questionGroups:
+  - id: "1"
+    questions:
+      - id: "1"
+        type: choice
+        content: Which type of password-based attack involves using a list of common
+          passwords to guess the correct one?
+        options:
+          - id: "1"
+            value: Dictionary Attack
+            explanation: A dictionary attack uses a list of common passwords to guess the
+              correct one.
+            isCorrect: true
+          - id: "2"
+            value: Brute Force Attack
+            explanation: A brute force attack tries every possible combination of
+              characters.
+          - id: "3"
+            value: Credential Stuffing
+            explanation: Credential stuffing uses stolen credentials from one service to
+              access another.

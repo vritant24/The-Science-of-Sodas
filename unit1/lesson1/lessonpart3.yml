@@ -1,0 +1,164 @@
+# yaml-language-server: $schema=https://vscodeedu.com/assets/schema/course-v2.schema.json
+id: lessonpart3
+title: XSS
+content: >
+  ## Understanding Cross-Site Scripting (XSS)
+
+
+  Cross-Site Scripting (XSS) is a type of security vulnerability commonly found
+  in web applications. It occurs when an attacker is able to inject malicious
+  scripts into content from otherwise trusted websites. These scripts can then
+  be executed in the user's browser, potentially leading to unauthorized actions
+  or data theft.
+
+
+  ### Code Example: HTML, CSS, and JavaScript
+
+
+  Here is a simple example demonstrating how HTML, CSS, and JavaScript can be
+  used together to create a basic interactive web page:
+
+
+  **HTML:**
+
+
+  ```html
+
+  <!DOCTYPE html>
+
+  <html lang="en">
+
+  <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <link rel="stylesheet" href="styles.css">
+      <title>Interactive Page</title>
+  </head>
+
+  <body>
+      <h1>Welcome to the Interactive Page</h1>
+      <button id="changeColorButton">Change Background Color</button>
+      <script src="script.js"></script>
+  </body>
+
+  </html>
+
+  ```
+
+
+  **CSS (styles.css):**
+
+
+  ```css
+
+  body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin-top: 50px;
+  }
+
+
+  button {
+      padding: 10px 20px;
+      font-size: 16px;
+      cursor: pointer;
+  }
+
+  ```
+
+
+  **JavaScript (script.js):**
+
+
+  ```javascript
+
+  document.getElementById('changeColorButton').addEventListener('click',
+  function() {
+      document.body.style.backgroundColor = 'lightblue';
+  });
+
+  ```
+
+
+  This example includes a button that, when clicked, changes the background
+  color of the page. It demonstrates the integration of HTML for structure, CSS
+  for styling, and JavaScript for interactivity.
+
+
+  #### How XSS Works
+
+
+  1. **Injection**: An attacker finds a way to inject malicious code into a web
+  page. This could be through a form input, a URL parameter, or any other input
+  field that the web application does not properly sanitize.
+
+
+  2. **Execution**: When a user visits the compromised page, the malicious
+  script is executed in their browser. This script can perform actions like
+  stealing cookies, logging keystrokes, or redirecting the user to a different
+  site.
+
+
+  3. **Impact**: The impact of an XSS attack can range from minor annoyances to
+  severe security breaches, depending on what the script is designed to do.
+
+
+  #### Types of XSS
+
+
+  * **Stored XSS**: The malicious script is stored on the server and served to
+  users whenever they access the affected page. This type is particularly
+  dangerous as it can affect many users.
+
+
+  * **Reflected XSS**: The script is reflected off a web server, typically via a
+  URL, and executed immediately. This type often requires the attacker to trick
+  the user into clicking a malicious link.
+
+
+  * **DOM-based XSS**: The vulnerability exists in the client-side code rather
+  than the server-side. The script is executed as a result of modifying the DOM
+  environment in the user's browser.
+
+
+  #### Preventing XSS
+
+
+  To protect against XSS, developers should:
+
+
+  * **Sanitize Inputs**: Ensure that all user inputs are properly sanitized and
+  encoded before being displayed on a web page.
+
+
+  * **Use Security Libraries**: Implement security libraries and frameworks that
+  automatically handle input validation and output encoding.
+
+
+  * **Content Security Policy (CSP)**: Use CSP headers to restrict the sources
+  from which scripts can be loaded and executed.
+
+
+  Understanding and preventing XSS is crucial for maintaining the security and
+  integrity of web applications. By following best practices, developers can
+  protect users from potential attacks and ensure a safer browsing experience.
+questionGroups:
+  - id: "1"
+    questions:
+      - id: "1"
+        type: choice
+        content: What is a common method to prevent Cross-Site Scripting (XSS) attacks?
+        options:
+          - id: "1"
+            value: Sanitize all user inputs before displaying them on a web page.
+            explanation: Sanitizing inputs helps prevent malicious scripts from being
+              executed.
+            isCorrect: true
+          - id: "2"
+            value: Store all user data in plain text on the server.
+            explanation: Storing data in plain text does not prevent XSS and poses other
+              security risks.
+          - id: "3"
+            value: Disable JavaScript in the user's browser.
+            explanation: Disabling JavaScript is not a practical solution for preventing
+              XSS.

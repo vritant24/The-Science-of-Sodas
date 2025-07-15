@@ -56,3 +56,15 @@ content: >
 
   In the next lesson, we will delve deeper into the chemistry of carbonation and
   explore how different ingredients affect the taste and texture of sodas.
+questionGroups:
+  - id: "1"
+    questions:
+      - id: "1"
+        type: string
+        content: What gas is dissolved under pressure to create the fizz in sodas?
+        options:
+          - id: "1"
+            value: carbon dioxide
+            explanation: Carbon dioxide is dissolved under pressure to create the fizz in
+              sodas.
+            isCorrect: true

@@ -140,3 +140,23 @@ editors:
   - course1/index.html
   - course1/index.css
   - course1/index.js
+questionGroups:
+  - id: "1"
+    questions:
+      - id: "1"
+        type: multiple
+        content: Which CSS property is used to make the bubbles appear realistic in the
+          simulation?
+        options:
+          - id: "1"
+            value: border-radius
+            explanation: The border-radius property is used to make the bubbles round.
+            isCorrect: true
+          - id: "2"
+            value: background-color
+            explanation: The background-color property sets the color of the bubbles, but
+              does not affect their shape.
+          - id: "3"
+            value: position
+            explanation: The position property is used to place the bubbles within the
+              container, not to make them look realistic.
